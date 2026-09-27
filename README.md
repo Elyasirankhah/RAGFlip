@@ -1,4 +1,4 @@
-# RAG Debugger
+# ragfix
 
 **Alpha.** Test a RAG fix against your real retriever before you ship it.
 
