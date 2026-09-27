@@ -1,0 +1,24 @@
+{
+  "question": "When does the Harbor Ferry depart?",
+  "answer": "The Harbor Ferry does depart at 11:40 from pier 2.",
+  "retrieved_chunks": [
+    {
+      "id": "harbor_ferry",
+      "text": "The Harbor Ferry does depart at 07:15 from pier 2.",
+      "rank": 1,
+      "score": 0.9
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "harbor_ferry",
+      "text": "The Harbor Ferry does depart at 07:15 from pier 2.",
+      "rank": 1,
+      "score": 0.9
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples"
+  }
+}

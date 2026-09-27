@@ -1,0 +1,28 @@
+{
+  "question": "How many meters is the Cedar Span?",
+  "answer": "The Cedar Span measures 240 meters across the gorge.",
+  "retrieved_chunks": [
+    {
+      "id": "weather",
+      "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy."
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "cedar_span",
+      "text": "The Cedar Span measures 240 meters across the gorge.",
+      "rank": 1,
+      "score": 0.9
+    },
+    {
+      "id": "weather",
+      "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy.",
+      "rank": 2,
+      "score": 0.1
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples"
+  }
+}

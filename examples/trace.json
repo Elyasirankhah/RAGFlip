@@ -1,0 +1,11 @@
+{
+  "question": "What is the capital of France?",
+  "answer": "Paris is the capital of France.",
+  "retrieved_chunks": [
+    {"id": "r1", "text": "Bananas are a yellow fruit."}
+  ],
+  "corpus_chunks": [
+    {"id": "c9", "text": "Paris is the capital of France.", "rank": 1, "score": 0.9}
+  ],
+  "metadata": {"top_k": 1, "retriever": "example"}
+}

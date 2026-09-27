@@ -1,0 +1,92 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: ci/cd/requirements-ci.txt
+
+      - name: Install
+        run: bash ci/cd/install.sh
+
+      - name: Lint
+        run: bash ci/cd/lint.sh
+
+      - name: Test
+        run: bash ci/cd/test.sh
+
+      - name: Security
+        run: bash ci/cd/security.sh
+
+  cd:
+    name: Build and publish image
+    needs: ci
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set image name
+        run: echo "IMAGE=ghcr.io/$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:${{ github.sha }}
+
+      - name: Smoke-start container
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "Image published, but OPENAI_API_KEY is not set as a GitHub Actions secret."
+            echo "Add it under Settings > Secrets and variables > Actions, then re-run CD."
+            exit 1
+          fi
+          docker pull "${IMAGE}:latest"
+          docker run -d --name rag-debugger -e OPENAI_API_KEY -p 8000:8000 "${IMAGE}:latest"
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/health; then
+              echo
+              echo "CD smoke check passed."
+              docker stop rag-debugger
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs rag-debugger
+          docker stop rag-debugger || true
+          echo "Container did not become healthy."
+          exit 1

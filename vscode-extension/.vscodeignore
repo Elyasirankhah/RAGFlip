@@ -1,0 +1,4 @@
+.vscodeignore
+.gitignore
+**/*.md
+!README.md

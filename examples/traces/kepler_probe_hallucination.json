@@ -1,0 +1,24 @@
+{
+  "question": "How often does the Kepler Probe orbit?",
+  "answer": "The Kepler Probe orbits every 90 days.",
+  "retrieved_chunks": [
+    {
+      "id": "kepler_probe",
+      "text": "The Kepler Probe orbits every 19 days.",
+      "rank": 1,
+      "score": 0.9
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "kepler_probe",
+      "text": "The Kepler Probe orbits every 19 days.",
+      "rank": 1,
+      "score": 0.9
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples"
+  }
+}

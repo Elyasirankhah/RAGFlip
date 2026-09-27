@@ -1,0 +1,24 @@
+{
+  "question": "When did the Silvervine vineyard bottle its first vintage?",
+  "answer": "The Silvervine vineyard bottled its first vintage in 1986.",
+  "retrieved_chunks": [
+    {
+      "id": "silvervine",
+      "text": "The Silvervine vineyard bottled its first vintage in 1986.",
+      "rank": 1,
+      "score": 0.95
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "silvervine",
+      "text": "The Silvervine vineyard bottled its first vintage in 1986.",
+      "rank": 1,
+      "score": 0.95
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples"
+  }
+}

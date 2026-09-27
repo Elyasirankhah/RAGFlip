@@ -1,0 +1,13 @@
+{
+  "question": "When was CERN founded?",
+  "answer": "CERN was founded in 1961.",
+  "retrieved_chunks": [
+    {"id": "cern_left", "text": "CERN was founded"},
+    {"id": "cern_right", "text": "in 1961 near Geneva."}
+  ],
+  "corpus_chunks": [
+    {"id": "cern_left", "text": "CERN was founded"},
+    {"id": "cern_right", "text": "in 1961 near Geneva."}
+  ],
+  "metadata": {"top_k": 2, "retriever": "examples.hetero_retriever"}
+}

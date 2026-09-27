@@ -1,0 +1,13 @@
+{
+  "question": "What does the desk lamp use?",
+  "answer": "The desk lamp uses 40 watts. Bananas grow on Mars.",
+  "retrieved_chunks": [
+    {"id": "lamp", "text": "The desk lamp uses 40 watts."}
+  ],
+  "corpus_chunks": [
+    {"id": "lamp", "text": "The desk lamp uses 40 watts."},
+    {"id": "lamp_catalog", "text": "The desk lamp catalog lists 400 watts for the industrial lamp."},
+    {"id": "bananas", "text": "Bananas are a yellow fruit."}
+  ],
+  "metadata": {"top_k": 1, "retriever": "examples.hetero_retriever"}
+}

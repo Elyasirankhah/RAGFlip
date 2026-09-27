@@ -1,0 +1,24 @@
+{
+  "question": "When did Mount Kaila erupt?",
+  "answer": "Mount Kaila erupted in 1812.",
+  "retrieved_chunks": [
+    {
+      "id": "mount_kaila",
+      "text": "Mount Kaila erupted in 1902.",
+      "rank": 1,
+      "score": 0.9
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "mount_kaila",
+      "text": "Mount Kaila erupted in 1902.",
+      "rank": 1,
+      "score": 0.9
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples"
+  }
+}

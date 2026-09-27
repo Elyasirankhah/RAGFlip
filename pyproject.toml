@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-debugger"
+version = "0.2.0"
+description = "Test a RAG fix against your real retriever before you ship it."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8,<3.13"
+authors = [{ name = "Elyasirankhah" }]
+keywords = ["rag", "retrieval", "openai", "debugger", "fastapi"]
+dependencies = [
+    "fastapi==0.104.1",
+    "uvicorn==0.24.0",
+    "python-multipart==0.0.6",
+    "openai>=1.12.0",
+    "faiss-cpu==1.7.4",
+    "pypdf2==3.0.1",
+    "numpy==1.24.3",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Framework :: FastAPI",
+]
+
+[project.urls]
+Homepage = "https://github.com/Elyasirankhah/RAG_Debugger"
+Repository = "https://github.com/Elyasirankhah/RAG_Debugger"
+
+[project.scripts]
+rag-debugger = "rag_debugger.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4.0", "ruff>=0.6.0", "bandit>=1.7.9"]
+local = ["torch>=2.5", "transformers>=5.8", "sentence-transformers>=3.0", "accelerate>=1.0"]
+
+[tool.setuptools]
+py-modules = ["app", "start_server"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["rag", "rag.*", "utils", "utils.*", "rag_debugger", "rag_debugger.*", "ui"]
+exclude = ["tests", "tests.*"]
+
+[tool.setuptools.package-data]
+ui = ["*.html", "*.css", "*.js"]

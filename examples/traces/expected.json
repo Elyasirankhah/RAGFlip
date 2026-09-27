@@ -1,0 +1,148 @@
+[
+  {
+    "trace": "harbor_ferry_retrieval",
+    "expected_before": "retrieval_miss",
+    "expected_experiment": "rerun_retriever",
+    "expected_verified": true,
+    "gold_file": "harbor_ferry"
+  },
+  {
+    "trace": "cedar_span_retrieval",
+    "expected_before": "retrieval_miss",
+    "expected_experiment": "rerun_retriever",
+    "expected_verified": true,
+    "gold_file": "cedar_span"
+  },
+  {
+    "trace": "maple_rye_retrieval",
+    "expected_before": "retrieval_miss",
+    "expected_experiment": "rerun_retriever",
+    "expected_verified": true,
+    "gold_file": "maple_rye"
+  },
+  {
+    "trace": "mount_kaila_retrieval",
+    "expected_before": "retrieval_miss",
+    "expected_experiment": "rerun_retriever",
+    "expected_verified": true,
+    "gold_file": "mount_kaila"
+  },
+  {
+    "trace": "oslo_accord_retrieval",
+    "expected_before": "retrieval_miss",
+    "expected_experiment": "rerun_retriever",
+    "expected_verified": true,
+    "gold_file": "oslo_accord"
+  },
+  {
+    "trace": "redrock_dam_retrieval",
+    "expected_before": "retrieval_miss",
+    "expected_experiment": "rerun_retriever",
+    "expected_verified": true,
+    "gold_file": "redrock_dam"
+  },
+  {
+    "trace": "kepler_probe_retrieval",
+    "expected_before": "retrieval_miss",
+    "expected_experiment": "rerun_retriever",
+    "expected_verified": true,
+    "gold_file": "kepler_probe"
+  },
+  {
+    "trace": "rivergate_retrieval",
+    "expected_before": "retrieval_miss",
+    "expected_experiment": "rerun_retriever",
+    "expected_verified": true,
+    "gold_file": "rivergate_hospital"
+  },
+  {
+    "trace": "lockgate_wider_k",
+    "expected_before": "k_too_small",
+    "expected_experiment": "increase_k",
+    "expected_verified": true,
+    "gold_file": "lockgate_canal",
+    "repair_k": 6
+  },
+  {
+    "trace": "lantern_wider_k",
+    "expected_before": "k_too_small",
+    "expected_experiment": "increase_k",
+    "expected_verified": true,
+    "gold_file": "lantern_point",
+    "repair_k": 6
+  },
+  {
+    "trace": "silvervine_wider_k",
+    "expected_before": "k_too_small",
+    "expected_experiment": "increase_k",
+    "expected_verified": true,
+    "gold_file": "silvervine",
+    "repair_k": 6
+  },
+  {
+    "trace": "greenline_wider_k",
+    "expected_before": "k_too_small",
+    "expected_experiment": "increase_k",
+    "expected_verified": true,
+    "gold_file": "greenline_train",
+    "repair_k": 6
+  },
+  {
+    "trace": "harbor_ferry_hallucination",
+    "expected_before": "hallucination",
+    "expected_experiment": "no_retrieval_change",
+    "expected_verified": false,
+    "gold_file": "harbor_ferry"
+  },
+  {
+    "trace": "mount_kaila_hallucination",
+    "expected_before": "hallucination",
+    "expected_experiment": "no_retrieval_change",
+    "expected_verified": false,
+    "gold_file": "mount_kaila"
+  },
+  {
+    "trace": "rivergate_hallucination",
+    "expected_before": "hallucination",
+    "expected_experiment": "no_retrieval_change",
+    "expected_verified": false,
+    "gold_file": "rivergate_hospital"
+  },
+  {
+    "trace": "kepler_probe_hallucination",
+    "expected_before": "hallucination",
+    "expected_experiment": "no_retrieval_change",
+    "expected_verified": false,
+    "gold_file": "kepler_probe"
+  },
+  {
+    "trace": "redrock_chunking",
+    "expected_before": "chunking_miss",
+    "expected_experiment": "increase_chunk_size",
+    "expected_verified": false,
+    "gold_file": "redrock_dam"
+  },
+  {
+    "trace": "kepler_chunking",
+    "expected_before": "chunking_miss",
+    "expected_experiment": "increase_chunk_size",
+    "expected_verified": false,
+    "gold_file": "kepler_probe"
+  },
+  {
+    "trace": "lantern_supported",
+    "expected_before": "supported",
+    "expected_experiment": null,
+    "expected_verified": false,
+    "gold_file": "lantern_point",
+    "note": "No failed claim, so no experiment runs."
+  },
+  {
+    "trace": "silvervine_supported",
+    "expected_before": "supported",
+    "expected_experiment": null,
+    "expected_verified": false,
+    "gold_file": "silvervine",
+    "note": "No failed claim, so no experiment runs."
+  }
+]

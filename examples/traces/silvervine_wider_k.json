@@ -1,0 +1,40 @@
+{
+  "question": "When did the Silvervine vineyard bottle its first vintage?",
+  "answer": "The Silvervine vineyard bottled its first vintage in 1986.",
+  "retrieved_chunks": [
+    {
+      "id": "weather",
+      "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy."
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "weather",
+      "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy.",
+      "rank": 1,
+      "score": 0.2
+    },
+    {
+      "id": "harbor_ferry",
+      "text": "The Harbor Ferry does depart at 07:15 from pier 2.",
+      "rank": 2,
+      "score": 0.15
+    },
+    {
+      "id": "cedar_span",
+      "text": "The Cedar Span measures 240 meters across the gorge.",
+      "rank": 3,
+      "score": 0.12
+    },
+    {
+      "id": "silvervine",
+      "text": "The Silvervine vineyard bottled its first vintage in 1986.",
+      "rank": 4,
+      "score": 0.88
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples"
+  }
+}

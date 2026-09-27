@@ -1,0 +1,11 @@
+{
+  "question": "What is the capital of France?",
+  "answer": "Paris is the capital of France.",
+  "retrieved_chunks": [
+    {"id": "paris", "text": "Paris is the capital of France."}
+  ],
+  "corpus_chunks": [
+    {"id": "paris", "text": "Paris is the capital of France."}
+  ],
+  "metadata": {"top_k": 1, "retriever": "examples.hetero_retriever"}
+}

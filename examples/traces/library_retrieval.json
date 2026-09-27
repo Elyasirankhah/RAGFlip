@@ -1,0 +1,12 @@
+{
+  "question": "When did the Oak Street library open?",
+  "answer": "The Oak Street library opened in 1998.",
+  "retrieved_chunks": [
+    {"id": "weather", "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy."}
+  ],
+  "corpus_chunks": [
+    {"id": "library", "text": "The Oak Street library opened in 1998. It lends books and hosts a morning reading hour.", "rank": 1, "score": 0.91},
+    {"id": "weather", "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy.", "rank": 2, "score": 0.12}
+  ],
+  "metadata": {"top_k": 1, "retriever": "examples"}
+}

@@ -1,0 +1,12 @@
+{
+  "question": "What is the capital of France?",
+  "answer": "Paris is the capital of France. The desk lamp uses 40 watts.",
+  "retrieved_chunks": [
+    {"id": "lamp", "text": "The desk lamp uses 40 watts."}
+  ],
+  "corpus_chunks": [
+    {"id": "lamp", "text": "The desk lamp uses 40 watts.", "rank": 1},
+    {"id": "paris", "text": "Paris is the capital of France.", "rank": 6}
+  ],
+  "metadata": {"top_k": 1, "retriever": "examples.demo_retriever"}
+}

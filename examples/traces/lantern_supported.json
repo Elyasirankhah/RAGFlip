@@ -1,0 +1,24 @@
+{
+  "question": "How far does the Lantern Point beam reach?",
+  "answer": "The Lantern Point beam reaches 18 miles.",
+  "retrieved_chunks": [
+    {
+      "id": "lantern_point",
+      "text": "The Lantern Point beam reaches 18 miles.",
+      "rank": 1,
+      "score": 0.95
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "lantern_point",
+      "text": "The Lantern Point beam reaches 18 miles.",
+      "rank": 1,
+      "score": 0.95
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples"
+  }
+}

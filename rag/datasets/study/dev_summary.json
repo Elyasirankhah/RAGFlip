@@ -1,0 +1,103 @@
+{
+  "always_increase_k": {
+    "failures": 1073,
+    "controls": 3972,
+    "repair_success": 0.356,
+    "regression_rate": 0.024,
+    "abstention_rate": 0.0,
+    "net_repairs": 287,
+    "repair_under_budget": 382,
+    "repair_under_budgets": {
+      "0%": null,
+      "1%": null,
+      "2%": null,
+      "5%": 382
+    },
+    "retriever_calls": 5045
+  },
+  "always_rerun": {
+    "failures": 1073,
+    "controls": 3972,
+    "repair_success": 0.0,
+    "regression_rate": 0.0,
+    "abstention_rate": 0.0,
+    "net_repairs": 0,
+    "repair_under_budget": 0,
+    "repair_under_budgets": {
+      "0%": 0,
+      "1%": 0,
+      "2%": 0,
+      "5%": 0
+    },
+    "retriever_calls": 5045
+  },
+  "one_shot": {
+    "failures": 1073,
+    "controls": 3972,
+    "repair_success": 0.279,
+    "regression_rate": 0.0,
+    "abstention_rate": 0.209,
+    "net_repairs": 299,
+    "repair_under_budget": 299,
+    "repair_under_budgets": {
+      "0%": 299,
+      "1%": 299,
+      "2%": 299,
+      "5%": 299
+    },
+    "retriever_calls": 830
+  },
+  "selective_no_guard": {
+    "failures": 1073,
+    "controls": 3972,
+    "repair_success": 0.33,
+    "regression_rate": 0.0,
+    "abstention_rate": 0.652,
+    "net_repairs": 354,
+    "repair_under_budget": 354,
+    "repair_under_budgets": {
+      "0%": 354,
+      "1%": 354,
+      "2%": 354,
+      "5%": 354
+    },
+    "retriever_calls": 2371
+  },
+  "selective": {
+    "failures": 1073,
+    "controls": 3972,
+    "repair_success": 0.33,
+    "regression_rate": 0.0,
+    "abstention_rate": 0.652,
+    "net_repairs": 354,
+    "repair_under_budget": 354,
+    "repair_under_budgets": {
+      "0%": 354,
+      "1%": 354,
+      "2%": 354,
+      "5%": 354
+    },
+    "retriever_calls": 2371
+  },
+  "oracle": {
+    "failures": 1073,
+    "controls": 3972,
+    "repair_success": 0.356,
+    "regression_rate": 0.0,
+    "abstention_rate": 0.644,
+    "net_repairs": 382,
+    "repair_under_budget": 382,
+    "repair_under_budgets": {
+      "0%": 382,
+      "1%": 382,
+      "2%": 382,
+      "5%": 382
+    },
+    "retriever_calls": 10857
+  },
+  "split": "dev",
+  "internal_judge": "overlap",
+  "label": "squad_answer_string",
+  "final_test_scored": false,
+  "cases": 5045
+}

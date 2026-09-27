@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Debugger v0.1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 RAG Debugger v0.1</h1>
+            <p>Upload documents and ask questions to see how retrieved chunks influence answers</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Upload Section -->
+            <section class="card">
+                <h2>📄 Upload Documents</h2>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" multiple accept=".pdf,.txt" style="display: none;">
+                    <div class="upload-placeholder" onclick="document.getElementById('fileInput').click()">
+                        <p>Click to select files or drag and drop</p>
+                        <p class="file-hint">Supports PDF and TXT files</p>
+                    </div>
+                    <div id="fileList" class="file-list"></div>
+                </div>
+                <button id="uploadBtn" class="btn btn-primary" onclick="uploadFiles()" disabled>Upload Documents</button>
+                <div id="uploadStatus" class="status-message"></div>
+            </section>
+
+            <!-- Question Section -->
+            <section class="card">
+                <h2>❓ Ask a Question</h2>
+                <div class="question-form">
+                    <textarea 
+                        id="questionInput" 
+                        placeholder="Enter your question here..."
+                        rows="3"
+                    ></textarea>
+                    <button id="askBtn" class="btn btn-primary" onclick="askQuestion()" disabled>Ask Question</button>
+                </div>
+                <div id="questionStatus" class="status-message"></div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="card" id="resultsSection" style="display: none;">
+                <h2>📊 Results</h2>
+                
+                <!-- Answer -->
+                <div class="result-block">
+                    <h3>Answer</h3>
+                    <div id="answerText" class="answer-text"></div>
+                </div>
+
+                <!-- Evidence Alignment -->
+                <div class="result-block">
+                    <h3>Evidence Alignment</h3>
+                    <div id="evidenceAlignment" class="evidence-list"></div>
+                </div>
+
+                <!-- Unsupported Sentences -->
+                <div class="result-block" id="unsupportedBlock" style="display: none;">
+                    <h3>⚠️ Unsupported Sentences</h3>
+                    <div id="unsupportedSentences" class="unsupported-list"></div>
+                </div>
+
+                <!-- Retrieved Chunks -->
+                <div class="result-block">
+                    <h3>📚 Retrieved Chunks</h3>
+                    <div id="retrievedChunks" class="chunks-list"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

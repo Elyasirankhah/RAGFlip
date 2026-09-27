@@ -1,0 +1,9 @@
+[
+  {"trace": "wider_k_works", "repair": "increase_k", "verified": true, "note": "The passage is below k."},
+  {"trace": "hallucination", "repair": "no_retrieval_change", "verified": false, "note": "Retrieval must not run."},
+  {"trace": "wider_k_regresses", "repair": "no_retrieval_change", "verified": false, "note": "Wider k drops the precise card and regresses the supported claim."},
+  {"trace": "merge_works", "repair": "merge_retrieved", "verified": true, "note": "The split passage is already retrieved."},
+  {"trace": "query_rewrite", "repair": "restore_original_query", "verified": true, "note": "The original query matches the passage."},
+  {"trace": "rerank", "repair": "rerank_candidates", "verified": true, "note": "The logged rerank score prefers a missed candidate."},
+  {"trace": "supported", "repair": null, "verified": false, "note": "Nothing failed."}
+]

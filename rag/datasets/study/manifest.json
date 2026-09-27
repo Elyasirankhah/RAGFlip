@@ -1,0 +1,43 @@
+{
+  "study_id": "selective-repair-v1",
+  "source": "SQuAD v1.1 dev",
+  "source_url": "https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v1.1.json",
+  "sealed_before_scoring": true,
+  "method_scored": false,
+  "split_seed": 11,
+  "cases": 10142,
+  "dev": 5045,
+  "test": 5097,
+  "failures": 2158,
+  "controls": 7984,
+  "by_environment": {
+    "chunk_window": {
+      "failure": 129,
+      "control": 1325
+    },
+    "hybrid": {
+      "failure": 102,
+      "control": 1331
+    },
+    "query_rewrite": {
+      "failure": 39,
+      "control": 1503
+    },
+    "rerank": {
+      "failure": 59,
+      "control": 1399
+    },
+    "dense": {
+      "failure": 649,
+      "control": 793
+    },
+    "bm25": {
+      "failure": 49,
+      "control": 1322
+    },
+    "context_budget": {
+      "failure": 1131,
+      "control": 311
+    }
+  }
+}

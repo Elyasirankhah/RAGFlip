@@ -1,0 +1,53 @@
+{
+  "question": "Where are the Apollo mission notebooks kept?",
+  "answer": "University Special Collections houses the handwritten mission logs from the moon program in climate-controlled storage.",
+  "retrieved_chunks": [
+    {
+      "id": "catalog_notice.txt",
+      "text": "The Apollo mission notebooks were digitized in 2019, and the archive website lists their catalog numbers.",
+      "score": 0.525635861090742
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "catalog_notice.txt",
+      "text": "The Apollo mission notebooks were digitized in 2019, and the archive website lists their catalog numbers.",
+      "rank": 1,
+      "score": 0.525635861090742
+    },
+    {
+      "id": "special_collections.txt",
+      "text": "University Special Collections houses the handwritten mission logs from the moon program in climate-controlled storage.",
+      "rank": 2,
+      "score": 0.122121154
+    },
+    {
+      "id": "battery_lab.txt",
+      "text": "The battery lab tests sodium cells under controlled cycling conditions.",
+      "rank": 3,
+      "score": 0.0
+    },
+    {
+      "id": "orchard.txt",
+      "text": "The orchard team records apple harvest dates in a shared ledger.",
+      "rank": 4,
+      "score": 0.0
+    },
+    {
+      "id": "acoustics.txt",
+      "text": "The acoustics laboratory measures violin resonance in a silent chamber.",
+      "rank": 5,
+      "score": 0.0
+    },
+    {
+      "id": "marine.txt",
+      "text": "The marine station keeps salinity records beside the instrument room.",
+      "rank": 6,
+      "score": 0.0
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples.tfidf_retriever"
+  }
+}

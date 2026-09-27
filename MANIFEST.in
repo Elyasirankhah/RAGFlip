@@ -1,0 +1,7 @@
+graft ui
+include LICENSE
+include README.md
+include app.py
+include start_server.py
+recursive-exclude tests *
+recursive-exclude vscode-extension *

@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# API Keys and Secrets
+*_key.txt
+*_secret.txt
+config.ini
+secrets.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Test / lint caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+bandit-report.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# FAISS indices (if saved)
+*.index
+*.faiss
+
+# Node / VS Code extension
+node_modules/
+*.vsix
+!vscode-extension/*.vsix
+
+# Downloaded benchmarks and derived traces
+Benchmark/
+examples/wiki_traces/
+examples/.wiki_cache/

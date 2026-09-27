@@ -1,0 +1,28 @@
+{
+  "question": "Which bakery sells Maple Rye loaves?",
+  "answer": "Maple Rye bakery sells dark rye loaves.",
+  "retrieved_chunks": [
+    {
+      "id": "weather",
+      "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy."
+    }
+  ],
+  "corpus_chunks": [
+    {
+      "id": "maple_rye",
+      "text": "Maple Rye bakery sells dark rye loaves.",
+      "rank": 1,
+      "score": 0.9
+    },
+    {
+      "id": "weather",
+      "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy.",
+      "rank": 2,
+      "score": 0.1
+    }
+  ],
+  "metadata": {
+    "top_k": 1,
+    "retriever": "examples"
+  }
+}

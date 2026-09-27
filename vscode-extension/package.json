@@ -1,0 +1,105 @@
+{
+  "name": "rag-debugger",
+  "displayName": "RAG Debugger",
+  "description": "Why your RAG failed, and whether a suggested fix actually helps.",
+  "version": "0.1.0",
+  "publisher": "elyasirankhah",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Other"
+  ],
+  "keywords": [
+    "rag",
+    "openai",
+    "retrieval",
+    "debugger",
+    "evidence"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Elyasirankhah/RAG_Debugger.git"
+  },
+  "homepage": "https://github.com/Elyasirankhah/RAG_Debugger",
+  "bugs": {
+    "url": "https://github.com/Elyasirankhah/RAG_Debugger/issues"
+  },
+  "activationEvents": [
+    "onView:ragDebugger.sidebar"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ragDebugger.setApiKey",
+        "title": "RAG Debugger: Set OpenAI API Key"
+      },
+      {
+        "command": "ragDebugger.start",
+        "title": "RAG Debugger: Start"
+      },
+      {
+        "command": "ragDebugger.stop",
+        "title": "RAG Debugger: Stop"
+      },
+      {
+        "command": "ragDebugger.open",
+        "title": "RAG Debugger: Open"
+      },
+      {
+        "command": "ragDebugger.diagnose",
+        "title": "RAG Debugger: Diagnose RAG failure"
+      },
+      {
+        "command": "ragDebugger.testFix",
+        "title": "RAG Debugger: Test suggested fix"
+      }
+    ],
+    "configuration": {
+      "title": "RAG Debugger",
+      "properties": {
+        "ragDebugger.port": {
+          "type": "number",
+          "default": 8000,
+          "minimum": 1,
+          "maximum": 65535,
+          "description": "Port for the local RAG Debugger server."
+        },
+        "ragDebugger.host": {
+          "type": "string",
+          "default": "127.0.0.1",
+          "description": "Host for the local RAG Debugger server."
+        },
+        "ragDebugger.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Python executable. Leave empty to auto-detect (py/python/python3)."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ragDebugger",
+          "title": "RAG Debugger",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "ragDebugger": [
+        {
+          "type": "webview",
+          "id": "ragDebugger.sidebar",
+          "name": "RAG Debugger"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "package": "npx --yes @vscode/vsce package --no-dependencies"
+  }
+}

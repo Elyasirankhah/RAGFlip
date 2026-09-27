@@ -1,0 +1,30 @@
+{
+  "study_id": "selective-repair-v1",
+  "git_head": "67ace4d40cf0e923bcd0e99d004dbcade9aa977b",
+  "worktree": "dirty",
+  "source_sha256": {
+    "rag/selective.py": "0cd3a228b2952da4e00df2b2661865df71b8a7e10e4cb2f5c646b3e7199503ee",
+    "rag/study.py": "377c33891fe830bcb2a9f2230b6fcfb8308008adc5e934a3b93940437adc4edb",
+    "rag/study_eval.py": "0c76f04ab0e8c10e1d3af27b18e6d7a89282ee127761186b6b0733062d9dc8e5",
+    "rag/adjudicate.py": "c7f42b3e86dcd00967afa3f98307250b7c9923f3a45a95d309279f3b50522470",
+    "rag/pipelines/study_set.py": "1d43e756e182647eeebc235c9383cff96e5b13d15b05e38efbdc3427196a9bcb"
+  },
+  "split_seed": 11,
+  "primary_regression_budget": 0.05,
+  "secondary_regression_budgets": [
+    0.0,
+    0.01,
+    0.02,
+    0.05
+  ],
+  "judge_models": {
+    "llama": "meta-llama/Llama-3.1-8B-Instruct",
+    "qwen": "Qwen/Qwen2.5-7B-Instruct",
+    "mistral": "mistralai/Mistral-7B-Instruct-v0.3",
+    "gemma": "google/gemma-2-9b-it",
+    "deepseek": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+    "phi": "microsoft/Phi-3.5-mini-instruct"
+  },
+  "final_test_scored": false,
+  "selection_rule": "unchanged"
+}

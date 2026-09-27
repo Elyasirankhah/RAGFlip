@@ -1,0 +1,14 @@
+{
+  "question": "When was CERN founded?",
+  "answer": "CERN was founded in 1961.",
+  "retrieved_chunks": [
+    {"id": "weather", "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy."}
+  ],
+  "corpus_chunks": [
+    {"id": "weather", "text": "Unrelated weather note about rainfall in the north. The afternoon stayed cloudy.", "rank": 1, "score": 0.2},
+    {"id": "paris", "text": "Paris is the capital of France. The city sits on the Seine. Visitors often see the old bridges.", "rank": 2, "score": 0.18},
+    {"id": "museum", "text": "The museum opened in 1884 on Broad Street. The main hall shows local paintings.", "rank": 3, "score": 0.16},
+    {"id": "cern", "text": "CERN was founded in 1961 near Geneva. Scientists from many countries work in the tunnels.", "rank": 4, "score": 0.84}
+  ],
+  "metadata": {"top_k": 1, "retriever": "examples"}
+}
