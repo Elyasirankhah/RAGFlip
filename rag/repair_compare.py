@@ -16,7 +16,7 @@ from rag.diagnose import diagnose
 from rag.experiment import _experiment, choose_experiment, execute_experiment, retriever_from_corpus
 from rag.trace import Chunk, Trace, TraceMetadata
 
-POLICIES = ("rag_debugger", "always_increase_k", "always_rerun", "llm_choice")
+POLICIES = ("ragfix", "always_increase_k", "always_rerun", "llm_choice")
 Suggester = Callable[[Trace], str]
 
 
@@ -132,7 +132,7 @@ def _policy_row(
 ) -> Dict[str, Any]:
     before = diagnose(trace, analyzer=analyzer)
     experiments = {
-        "rag_debugger": choose_experiment(trace, before),
+        "ragfix": choose_experiment(trace, before),
         "always_increase_k": _forced(trace, "increase_k"),
         "always_rerun": _forced(trace, "rerun_retriever"),
         "llm_choice": _from_suggestion(trace, _suggestion(analyzer, trace, suggester)),

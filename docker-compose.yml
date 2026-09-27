@@ -1,6 +1,6 @@
 services:
-  rag-debugger:
-    image: ghcr.io/elyasirankhah/rag_debugger:latest
+  ragfix:
+    image: ghcr.io/elyasirankhah/ragfix:latest
     build: .
     ports:
       - "8000:8000"

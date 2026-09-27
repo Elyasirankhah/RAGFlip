@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ragfix"
-version = "0.2.0"
+version = "0.2.1"
 description = "Test a RAG fix against your real retriever before you ship it."
 readme = "README.md"
 license = { text = "MIT" }
@@ -31,7 +31,7 @@ Homepage = "https://github.com/Elyasirankhah/RAG_Debugger"
 Repository = "https://github.com/Elyasirankhah/RAG_Debugger"
 
 [project.scripts]
-rag-debugger = "rag_debugger.cli:main"
+ragfix = "ragfix.cli:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=7.4.0", "ruff>=0.6.0", "bandit>=1.7.9"]
@@ -42,7 +42,7 @@ py-modules = ["app", "start_server"]
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["rag", "rag.*", "utils", "utils.*", "rag_debugger", "rag_debugger.*", "ui"]
+include = ["rag", "rag.*", "utils", "utils.*", "ragfix", "ragfix.*", "ui"]
 exclude = ["tests", "tests.*"]
 
 [tool.setuptools.package-data]

@@ -3,7 +3,7 @@
 The experimental product is the CLI, not this server demo:
 
 ```bash
-rag-debugger repair TRACE --retriever module:function --judge overlap
+ragfix repair TRACE --retriever module:function --judge overlap
 ```
 
 See README.md. The steps below start the older upload/ask API.

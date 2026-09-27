@@ -121,7 +121,7 @@ def flatten_squad(payload: dict) -> Tuple[List[dict], List[dict]]:
 def ensure_squad(path: Path = SOURCE_PATH) -> dict:
     if not path.exists():
         path.parent.mkdir(parents=True, exist_ok=True)
-        request = urllib.request.Request(SOURCE_URL, headers={"User-Agent": "rag-debugger"})
+        request = urllib.request.Request(SOURCE_URL, headers={"User-Agent": "ragfix"})
         path.write_bytes(urllib.request.urlopen(request, timeout=180).read())
     return json.loads(path.read_text(encoding="utf-8"))
 

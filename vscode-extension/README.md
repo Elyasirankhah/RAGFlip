@@ -13,13 +13,13 @@ pip install git+https://github.com/Elyasirankhah/RAG_Debugger.git
 2. Install this extension from the VSIX (Command Palette: **Extensions: Install from VSIX...**), or:
 
 ```powershell
-code --install-extension rag-debugger-0.1.0.vsix
+code --install-extension ragfix-0.1.0.vsix
 ```
 
 In Cursor:
 
 ```powershell
-cursor --install-extension rag-debugger-0.1.0.vsix
+cursor --install-extension ragfix-0.1.0.vsix
 ```
 
 ## Use

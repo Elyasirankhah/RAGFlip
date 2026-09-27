@@ -4,7 +4,7 @@ The passages are the SQuAD v1.1 dev paragraphs already stored in
 rag/datasets/study/. The first run downloads
 sentence-transformers/all-MiniLM-L6-v2 (about 80MB) and caches the vectors.
 
-This is a demo of `rag-debugger check`. It is not the sealed study.
+This is a demo of `ragfix check`. It is not the sealed study.
 """
 from __future__ import annotations
 
@@ -145,7 +145,7 @@ def format_gold(change: str, counts) -> str:
 
 
 def retrieve(query: str, k: int):
-    """MiniLM dense retrieval. Used by `rag-debugger check --retriever examples.wiki_demo:retrieve`."""
+    """MiniLM dense retrieval. Used by `ragfix check --retriever examples.wiki_demo:retrieve`."""
     return _index().dense(query, k)
 
 
@@ -203,7 +203,7 @@ def main() -> None:
     print(format_check(packed, judge="overlap", change=f"bm25 budget packer at k={BUDGET_K}"))
     print(f"Traces written to {TRACE_DIR}")
     print("Re-run the dense change with:")
-    print("  rag-debugger check examples/wiki_traces --retriever examples.wiki_demo:retrieve --k 1 --judge overlap")
+    print("  ragfix check examples/wiki_traces --retriever examples.wiki_demo:retrieve --k 1 --judge overlap")
 
 
 def _load_squad():

@@ -58,7 +58,7 @@ def test_mixed_compare_calls_the_pipeline_retriever():
         suggester=lambda _trace: "no_retrieval_change",
     )
     assert calls
-    assert report["verified_repair_rate"]["rag_debugger"]["verified"] == 1
+    assert report["verified_repair_rate"]["ragfix"]["verified"] == 1
     assert "observed" not in trace.to_dict()
 
 

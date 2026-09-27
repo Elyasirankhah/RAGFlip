@@ -84,7 +84,7 @@ def test_overlap_demo_accepts_and_rejects():
 
 
 def test_langchain_retriever_hook_passes_k():
-    from rag_debugger.integrations.langchain import as_retriever
+    from ragfix.integrations.langchain import as_retriever
 
     class FakeRetriever:
         def __init__(self):

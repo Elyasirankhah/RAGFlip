@@ -76,17 +76,17 @@ jobs:
             exit 1
           fi
           docker pull "${IMAGE}:latest"
-          docker run -d --name rag-debugger -e OPENAI_API_KEY -p 8000:8000 "${IMAGE}:latest"
+          docker run -d --name ragfix -e OPENAI_API_KEY -p 8000:8000 "${IMAGE}:latest"
           for i in $(seq 1 30); do
             if curl -fsS http://127.0.0.1:8000/health; then
               echo
               echo "CD smoke check passed."
-              docker stop rag-debugger
+              docker stop ragfix
               exit 0
             fi
             sleep 2
           done
-          docker logs rag-debugger
-          docker stop rag-debugger || true
+          docker logs ragfix
+          docker stop ragfix || true
           echo "Container did not become healthy."
           exit 1

@@ -5,7 +5,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
 if [ -z "${IMAGE:-}" ]; then
-  echo "IMAGE is required, e.g. ghcr.io/elyasirankhah/rag_debugger"
+  echo "IMAGE is required, e.g. ghcr.io/elyasirankhah/ragfix"
   exit 1
 fi
 

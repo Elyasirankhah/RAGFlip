@@ -4,5 +4,5 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
-IMAGE_NAME="${IMAGE_NAME:-rag-debugger}"
+IMAGE_NAME="${IMAGE_NAME:-ragfix}"
 docker build -t "$IMAGE_NAME" .
