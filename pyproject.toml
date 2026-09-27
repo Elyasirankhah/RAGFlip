@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "rag-debugger"
+name = "ragfix"
 version = "0.2.0"
 description = "Test a RAG fix against your real retriever before you ship it."
 readme = "README.md"

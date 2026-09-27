@@ -3,11 +3,13 @@
 **Alpha.** Test a RAG fix against your real retriever before you ship it.
 
 ```bash
-pip install -e .
+pip install ragfix
 rag-debugger analyze trace.json
 rag-debugger repair trace.json --retriever myapp.search:retrieve
 rag-debugger check traces/ --retriever myapp.search:retrieve --k 8
 ```
+
+Package: https://pypi.org/project/ragfix/
 
 The tool loads one failed trace, picks one small retrieval change, calls your retriever, and keeps the change only when the failed claim becomes supported and no previously supported claim gets worse.
 
