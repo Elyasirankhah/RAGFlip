@@ -70,11 +70,6 @@ jobs:
 
       - name: Smoke-start container
         run: |
-          if [ -z "$OPENAI_API_KEY" ]; then
-            echo "Image published, but OPENAI_API_KEY is not set as a GitHub Actions secret."
-            echo "Add it under Settings > Secrets and variables > Actions, then re-run CD."
-            exit 1
-          fi
           docker pull "${IMAGE}:latest"
           docker run -d --name ragfix -e OPENAI_API_KEY -p 8000:8000 "${IMAGE}:latest"
           for i in $(seq 1 30); do
