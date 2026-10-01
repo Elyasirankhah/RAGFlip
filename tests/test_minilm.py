@@ -1,3 +1,9 @@
+import pytest
+
+pytest.importorskip('torch')
+pytest.importorskip('safetensors')
+pytest.importorskip('tokenizers')
+
 import numpy as np
 
 from examples.minilm import from_cache
