@@ -306,7 +306,7 @@ def _bucket(prefix: str, name: str, labels: Sequence[str]) -> str:
 def _vector(tokens: Sequence[str]) -> List[float]:
     vec = [0.0] * DENSE_DIM
     for token in tokens:
-        bucket = int(hashlib.md5(token.encode()).hexdigest()[:8], 16) % DENSE_DIM
+        bucket = int(hashlib.md5(token.encode(), usedforsecurity=False).hexdigest()[:8], 16) % DENSE_DIM
         vec[bucket] += 1.0
     return vec
 
