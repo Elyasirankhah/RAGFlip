@@ -1,8 +1,3 @@
-"""Intervals, paired tests, and where negative flips sit.
-
-Uses the top-50 lists already saved by the measurement sweeps. No encoding.
-Definitions live in rag.flip_metrics.
-"""
 from __future__ import annotations
 
 import importlib.util
@@ -15,6 +10,7 @@ _spec = importlib.util.spec_from_file_location("flip_metrics", ROOT_DIR / "rag" 
 _metrics = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_metrics)
 mcnemar_p = _metrics.mcnemar_p
+holm_adjust = _metrics.holm_adjust
 summarize = _metrics.summarize
 with_intervals = _metrics.with_intervals
 wilson_interval = _metrics.wilson_interval
@@ -247,6 +243,7 @@ def _flip_group(flips):
 
 def _paired(bge_hits, e5_hits):
     paired = {}
+    p_values = []
     for k in KS:
         only_bge = only_e5 = 0
         for (bge_had, bge_now), (e5_had, e5_now) in zip(bge_hits[k], e5_hits[k]):
@@ -256,11 +253,16 @@ def _paired(bge_hits, e5_hits):
             e5_flip = not e5_now
             only_bge += int(bge_flip and not e5_flip)
             only_e5 += int(e5_flip and not bge_flip)
+        p_value = mcnemar_p(only_bge, only_e5)
         paired[str(k)] = {
             "bge_flips_e5_keeps": only_bge,
             "e5_flips_bge_keeps": only_e5,
-            "mcnemar_p": mcnemar_p(only_bge, only_e5),
+            "exact_mcnemar_p": p_value,
         }
+        p_values.append(p_value)
+    adjusted = holm_adjust(p_values)
+    for k, adjusted_p in zip(KS, adjusted):
+        paired[str(k)]["holm_adjusted_p_across_depths"] = adjusted_p
     return paired
 
 
@@ -289,7 +291,9 @@ def _print_paired(dataset, paired) -> None:
     for k, row in paired.items():
         print(
             f"  k={k:>2}  only BGE flips {row['bge_flips_e5_keeps']:5d}  "
-            f"only E5 flips {row['e5_flips_bge_keeps']:5d}  p={row['mcnemar_p']:.4g}",
+            f"only E5 flips {row['e5_flips_bge_keeps']:5d}  "
+            f"exact p={row['exact_mcnemar_p']:.4g}  "
+            f"Holm p={row['holm_adjusted_p_across_depths']:.4g}",
             flush=True,
         )
 

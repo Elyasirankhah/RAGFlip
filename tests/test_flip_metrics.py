@@ -1,5 +1,4 @@
-"""Locks the retriever-swap metric definitions to the Natural Questions k=10 count."""
-from rag.flip_metrics import mcnemar_p, net_gain_interval, summarize, wilson_interval, with_intervals
+from rag.flip_metrics import holm_adjust, mcnemar_p, net_gain_interval, summarize, wilson_interval, with_intervals
 
 
 def test_nq_bge_k10_definitions():
@@ -35,7 +34,13 @@ def test_with_intervals_names_every_rate():
     }
 
 
-def test_mcnemar_is_large_when_the_models_disagree_equally():
+def test_exact_mcnemar_is_large_when_the_models_disagree_equally():
     assert mcnemar_p(40, 40) > 0.5
     assert mcnemar_p(0, 0) == 1.0
     assert mcnemar_p(80, 5) < 0.001
+
+
+def test_holm_adjustment_preserves_order_and_caps_at_one():
+    adjusted = holm_adjust([0.01, 0.20, 0.001])
+    assert adjusted[2] <= adjusted[0] <= adjusted[1]
+    assert all(0.0 <= value <= 1.0 for value in adjusted)

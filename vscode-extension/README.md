@@ -1,13 +1,13 @@
-# RAG Debugger for VS Code
+# ragfix for VS Code
 
-Start the RAG Debugger from the editor, save your OpenAI key in VS Code secret storage, and inspect which retrieved chunks support each generated sentence.
+Run ragfix from the editor, save your OpenAI key in VS Code secret storage, and inspect which retrieved chunks support each generated sentence.
 
 ## Install
 
 1. Install the Python package:
 
 ```powershell
-pip install git+https://github.com/Elyasirankhah/RAG_Debugger.git
+pip install ragfix
 ```
 
 2. Install this extension from the VSIX (Command Palette: **Extensions: Install from VSIX...**), or:

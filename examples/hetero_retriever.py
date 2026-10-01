@@ -1,8 +1,3 @@
-"""Development retriever for repair selection. It is not the sealed holdout.
-
-Wider k is not always a superset. The lamp query drops the precise card once
-the token budget is filled with the noisy catalog.
-"""
 from __future__ import annotations
 
 DOCS = {

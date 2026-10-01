@@ -1,13 +1,3 @@
-"""Full BEIR Natural Questions: BM25 versus BGE, resumable, several k.
-
-Both retrievers search the full 2,681,468-passage collection. A question is
-found when a judged relevant passage is in the top k. Embeddings and top-50
-lists are written to scratch as they finish, so a killed job continues
-instead of encoding the collection again.
-
-Stopwords are removed in BM25 so the full collection finishes in memory.
-That is recorded in the summary. This is not the sealed SQuAD test.
-"""
 from __future__ import annotations
 
 import gc

@@ -1,5 +1,3 @@
-"""Demo retriever. Wider k is not a superset: the lamp card is dropped."""
-
 DOCS = {
     "paris": "Paris is the capital of France.",
     "lamp": "The desk lamp uses 40 watts.",

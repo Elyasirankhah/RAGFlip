@@ -1,11 +1,3 @@
-"""Swap BM25 for a real dense retriever on Wikipedia passages.
-
-The passages are the SQuAD v1.1 dev paragraphs already stored in
-rag/datasets/study/. The first run downloads
-sentence-transformers/all-MiniLM-L6-v2 (about 80MB) and caches the vectors.
-
-This is a demo of `ragfix check`. It is not the sealed study.
-"""
 from __future__ import annotations
 
 import json

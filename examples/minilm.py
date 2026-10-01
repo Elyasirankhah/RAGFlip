@@ -1,8 +1,3 @@
-"""Mean-pooled MiniLM encoder using the cached all-MiniLM-L6-v2 weights.
-
-This does not import transformers. That package refuses to start when
-huggingface-hub is 1.x, which is the case on this machine.
-"""
 from __future__ import annotations
 
 import os

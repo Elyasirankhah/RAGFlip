@@ -27,8 +27,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Elyasirankhah/RAG_Debugger"
-Repository = "https://github.com/Elyasirankhah/RAG_Debugger"
+Homepage = "https://github.com/Elyasirankhah/ragfix"
+Repository = "https://github.com/Elyasirankhah/ragfix"
 
 [project.scripts]
 ragfix = "ragfix.cli:main"

@@ -1,8 +1,3 @@
-"""BM25 versus BGE on HotpotQA distractor paragraphs.
-
-The label is whether the dataset answer string is in the retrieved text.
-This is a pilot. It is not the sealed SQuAD test.
-"""
 from __future__ import annotations
 
 import json

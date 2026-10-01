@@ -1,4 +1,3 @@
-"""Search the text files in examples/corpus. It does not hardcode an answer."""
 from pathlib import Path
 
 CORPUS = Path(__file__).resolve().parent / "corpus"

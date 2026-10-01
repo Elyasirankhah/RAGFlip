@@ -1,4 +1,3 @@
-"""Command-line entry point for RAG Debugger v0.2."""
 from __future__ import annotations
 
 import argparse

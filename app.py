@@ -1,6 +1,3 @@
-"""
-FastAPI application for RAG Debugger.
-"""
 import sys
 if sys.platform == 'win32':
     import codecs
@@ -33,7 +30,7 @@ from rag.trace import Trace
 
 _UI_DIR = Path(__file__).resolve().parent / "ui"
 
-app = FastAPI(title="RAG Debugger", version="0.1.0")
+app = FastAPI(title="ragfix", version="0.2.2")
 
 app.add_middleware(
     CORSMiddleware,

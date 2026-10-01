@@ -1,9 +1,3 @@
-"""BM25 versus BGE and E5 on BEIR FiQA.
-
-FiQA is financial questions, not Wikipedia. The label, depths, stopwords,
-and mix rules match the Natural Questions and HotpotQA sweeps. Files use
-the fiqa_ prefix, so the earlier results stay in place.
-"""
 from __future__ import annotations
 
 import gc

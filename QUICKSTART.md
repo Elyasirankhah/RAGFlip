@@ -1,62 +1,46 @@
-# Quick Start Guide
+# Quick start
 
-The experimental product is the CLI, not this server demo:
+Install the package and point it at your retriever:
 
 ```bash
-ragfix repair TRACE --retriever module:function --judge overlap
+pip install ragfix
+ragfix check traces/ --retriever myapp.search:retrieve --k 8
+ragfix repair failure.json --retriever myapp.search:retrieve --judge overlap
 ```
 
-See README.md. The steps below start the older upload/ask API.
+The trace format and the retriever signature are in [README.md](README.md).
 
-## 1. Install Dependencies
+## Local server
 
-```powershell
+```bash
 pip install -r requirements.txt
 ```
 
-## 2. Set OpenAI API Key
+Set a key only if you want the OpenAI judge or the ask endpoint:
 
-**Windows (PowerShell):**
 ```powershell
 $env:OPENAI_API_KEY="your-api-key-here"
 ```
 
-**Linux/Mac:**
 ```bash
 export OPENAI_API_KEY="your-api-key-here"
 ```
 
-## 3. Start the Server
+Start it:
 
-**Option A: Using the startup script**
-```powershell
-python start_server.py
+```bash
+ragfix serve
 ```
 
-**Option B: Using uvicorn directly**
-```powershell
-uvicorn app:app --reload
-```
+The server listens on `http://localhost:8000`. Interactive docs are at `http://localhost:8000/docs`.
 
-The server will start at `http://localhost:8000`
-
-## 4. Test the API
-
-### Upload a document:
-```powershell
+```bash
 curl -X POST "http://localhost:8000/upload" -F "files=@your_document.pdf"
+curl -X POST "http://localhost:8000/ask" -H "Content-Type: application/json" -d "{\"question\": \"What is this document about?\"}"
 ```
 
-### Ask a question:
-```powershell
-curl -X POST "http://localhost:8000/ask" -H "Content-Type: application/json" -d '{\"question\": \"What is this document about?\"}'
+If port 8000 is taken:
+
+```bash
+uvicorn app:app --port 8001
 ```
-
-### View API docs:
-Open `http://localhost:8000/docs` in your browser for interactive API documentation.
-
-## Troubleshooting
-
-- **"OPENAI_API_KEY not set"**: Make sure you've set the environment variable in the same terminal session
-- **Import errors**: Make sure all dependencies are installed: `pip install -r requirements.txt`
-- **Port already in use**: Change the port in `start_server.py` or use `uvicorn app:app --port 8001`

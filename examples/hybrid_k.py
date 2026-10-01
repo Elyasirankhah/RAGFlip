@@ -1,9 +1,3 @@
-"""Fixed-budget hybrids on the saved BM25 and BGE top-50 lists.
-
-Every rule was chosen before looking at these scores. Each one returns
-exactly k passages. Reciprocal rank fusion uses the standard constant 60.
-No encoding.
-"""
 from __future__ import annotations
 
 import json

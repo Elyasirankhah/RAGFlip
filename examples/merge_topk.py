@@ -1,9 +1,3 @@
-"""Fixed-budget mix of the saved BM25 and BGE rankings.
-
-Reads the top-50 lists already written by the full Natural Questions and
-HotpotQA sweeps. For each k, compare BM25 alone, BGE alone, an alternating
-mix that still returns k passages, and the union of both lists. No encoding.
-"""
 from __future__ import annotations
 
 import json

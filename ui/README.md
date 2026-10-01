@@ -1,6 +1,6 @@
-# RAG Debugger UI
+# ragfix UI
 
-Simple web interface for the RAG Debugger backend.
+Web interface for the local ragfix server.
 
 ## Features
 

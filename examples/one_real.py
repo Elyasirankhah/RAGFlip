@@ -1,9 +1,3 @@
-"""One RAGTruth article past the sealed lists.
-
-The words come from the dataset. The evidence sentence is left out of the
-retrieved set, the same way a retrieval miss is built for development.
-This does not score the 25 development articles or the 100 holdout articles.
-"""
 from __future__ import annotations
 
 import json
@@ -24,8 +18,6 @@ from rag.retrieve import dense_retrieve
 TRACE_PATH = Path(__file__).resolve().parent / "traces" / "one_real.json"
 DEV_LIMIT = 25
 HOLDOUT_LIMIT = 100
-# Repair runs already finished. Kept here so a rerun does not reuse them.
-# They are not added to the development split, so the sealed holdout stays put.
 ALREADY_RUN = frozenset({"15135", "15303"})
 DEFAULT_ROOT = Path("/nfs/roberts/scratch/pi_sjf37/ei235/ragdbg/RAGTruth/dataset")
 

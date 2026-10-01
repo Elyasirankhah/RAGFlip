@@ -1,15 +1,3 @@
-"""Full BEIR HotpotQA: BM25 versus BGE, resumable, several k.
-
-Both retrievers search the full 5,233,329-passage Wikipedia collection.
-A question counts as found when at least one judged relevant passage is in
-the top k. This is the same label as the full Natural Questions sweep.
-It is not the 10-paragraph distractor pilot, and it is not the sealed
-SQuAD test.
-
-Stopwords are removed in BM25 so the index can finish in memory. That is
-recorded in the summary. Checkpoints use the hotpot_full_ prefix, so the
-Natural Questions files are left in place.
-"""
 from __future__ import annotations
 
 import gc

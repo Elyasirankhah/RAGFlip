@@ -1,8 +1,3 @@
-"""Metrics for a retriever swap.
-
-A question is supported when a judged relevant passage is inside the top k.
-These functions are the measurement study. They are not the repair study.
-"""
 from __future__ import annotations
 
 import math
@@ -73,14 +68,25 @@ def net_gain_interval(fixed: int, broken: int, questions: int, z: float = Z_95):
 
 
 def mcnemar_p(only_first: int, only_second: int) -> float:
-    """Two-sided McNemar test, chi-square with 1 degree of freedom and continuity correction."""
+    """Two-sided exact McNemar test, conditional on the discordant pairs."""
     discordant = only_first + only_second
     if discordant <= 0:
         return 1.0
-    statistic = (abs(only_first - only_second) - 1.0) ** 2 / discordant
-    if statistic < 0:
-        return 1.0
-    return min(1.0, math.erfc(math.sqrt(statistic / 2.0)))
+    smaller = min(only_first, only_second)
+    lower_tail = sum(math.comb(discordant, i) for i in range(smaller + 1))
+    return min(1.0, 2.0 * lower_tail / (2**discordant))
+
+
+def holm_adjust(p_values: list[float]) -> list[float]:
+    """Holm family-wise adjustment, returned in the input order."""
+    order = sorted(range(len(p_values)), key=p_values.__getitem__)
+    adjusted = [0.0] * len(p_values)
+    running = 0.0
+    total = len(p_values)
+    for rank, index in enumerate(order):
+        running = max(running, (total - rank) * p_values[index])
+        adjusted[index] = min(1.0, running)
+    return adjusted
 
 
 PUBLISHED = (

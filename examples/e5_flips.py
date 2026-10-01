@@ -1,9 +1,3 @@
-"""BM25 versus E5-large-v2 on the full Natural Questions and HotpotQA corpora.
-
-Reuses the BM25 top-50 lists from the BGE sweeps. Encodes passages with the
-required E5 prefix and saves a new embedding file, so the BGE files stay in
-place. A killed job continues from the last saved batch.
-"""
 from __future__ import annotations
 
 import gc
