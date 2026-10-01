@@ -1,5 +1,7 @@
 # Selective repair study
 
+This file is the earlier repair experiment. It is not the retriever-swap measurement in [`MEASUREMENT.md`](MEASUREMENT.md). Do not score the sealed test, and do not retune this study from the flip tables.
+
 **Preregistered. Development is scored with overlap, Llama 3.1 8B, Qwen2.5 7B, and Mistral 7B Instruct v0.3. The final test is not scored.**
 
 ## Question

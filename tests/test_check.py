@@ -52,5 +52,5 @@ def test_cli_check_prints_report(tmp_path, capsys):
 
     main(["check", str(_folder(tmp_path)), "--retriever", "examples.demo_retriever:retrieve", "--k", "6", "--judge", "overlap"])
     out = capsys.readouterr().out
-    assert "RAG Debugger check" in out
+    assert "ragfix check" in out
     assert "Skipped 1 files that are not traces." in out

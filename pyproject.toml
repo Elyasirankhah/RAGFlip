@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ragfix"
-version = "0.2.1"
+version = "0.2.2"
 description = "Test a RAG fix against your real retriever before you ship it."
 readme = "README.md"
 license = { text = "MIT" }

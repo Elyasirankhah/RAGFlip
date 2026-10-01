@@ -1,17 +1,15 @@
 # ragfix
 
-**Alpha.** Test a RAG fix against your real retriever before you ship it.
+Swapping BM25 for MiniLM on 150 Wikipedia questions fixed 13 missed answers and broke 33 that were already right.
 
 ```bash
 pip install ragfix
-ragfix analyze trace.json
-ragfix repair trace.json --retriever myapp.search:retrieve
 ragfix check traces/ --retriever myapp.search:retrieve --k 8
 ```
 
-Package: https://pypi.org/project/ragfix/
+The logged traces are the before. The retriever you pass is the after. Keep a change only when the failed claim improves and a previously supported claim does not get worse.
 
-The tool loads one failed trace, picks one small retrieval change, calls your retriever, and keeps the change only when the failed claim becomes supported and no previously supported claim gets worse.
+Package: https://pypi.org/project/ragfix/
 
 `judge_supported` is that judge's label. It is not ground truth. On a 200-example slice, Llama, Qwen, and Laya all scored below the 0.635 majority baseline. See [`RESULTS.md`](RESULTS.md).
 
@@ -28,7 +26,7 @@ ragfix repair failure.json --retriever myproject.retrieval:search --judge qwen
 A run that should be kept looks like this:
 
 ```text
-RAG Debugger
+ragfix
 Judge: overlap
 
 Failed claim
@@ -110,6 +108,57 @@ Replacing BM25 with `all-MiniLM-L6-v2` at the same k:
 
 Packing BM25 top-6 into a 90-word budget fixed 6 and broke 93 of the 117 answers BM25 already had. The tool's recommendation on both changes is `REVIEW BEFORE SHIPPING`.
 
+## Retriever-swap measurement
+
+This section is a separate study from the repair experiment at the bottom of this file. It does not use the sealed SQuAD split, the repair actions, or the judges.
+
+On the full BEIR collections, replacing BM25 with BGE-large or E5-large-v2 raises the number of questions that have a judged relevant passage in the top k. It also drops some questions BM25 already had right. That drop is largest at k=1 and smaller at k=50. BM25 dropped a fixed stopword list so the large indexes would fit in memory.
+
+Definitions, 95% intervals, and the reproduction path are in [`MEASUREMENT.md`](MEASUREMENT.md). A flip below is a question BM25 had right and the dense retriever lost. Net is newly fixed questions minus flips.
+
+Natural Questions, 2,681,468 passages, 3,452 questions:
+
+| k | BGE broken | BGE flip | BGE net | E5 broken | E5 flip | E5 net |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 194 | 37.5% | +708 | 148 | 28.6% | +959 |
+| 5 | 149 | 12.0% | +1,157 | 105 | 8.5% | +1,406 |
+| 10 | 97 | 6.1% | +1,177 | 63 | 3.9% | +1,359 |
+| 20 | 89 | 4.6% | +1,056 | 47 | 2.4% | +1,184 |
+| 50 | 55 | 2.3% | +864 | 37 | 1.6% | +916 |
+
+HotpotQA, 5,233,329 passages, 7,405 questions:
+
+| k | BGE broken | BGE flip | BGE net | E5 broken | E5 flip | E5 net |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 498 | 10.2% | +1,175 | 492 | 10.1% | +1,200 |
+| 5 | 205 | 3.3% | +810 | 187 | 3.1% | +829 |
+| 10 | 143 | 2.2% | +604 | 156 | 2.4% | +589 |
+| 20 | 105 | 1.6% | +428 | 106 | 1.6% | +418 |
+| 50 | 61 | 0.9% | +257 | 66 | 0.9% | +245 |
+
+FiQA, 57,638 financial passages, 648 questions:
+
+| k | BGE broken | BGE flip | BGE net | E5 broken | E5 flip | E5 net |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 27 | 19.4% | +149 | 32 | 23.0% | +130 |
+| 5 | 25 | 10.2% | +172 | 38 | 15.5% | +132 |
+| 10 | 28 | 9.2% | +156 | 38 | 12.4% | +127 |
+| 20 | 16 | 4.4% | +150 | 35 | 9.6% | +112 |
+| 50 | 10 | 2.4% | +142 | 24 | 5.8% | +116 |
+
+At a fixed budget of 10 passages, alternating the two rankings, or fusing them with reciprocal rank fusion (constant 60), cuts the breaks. On Natural Questions the mix gives up some of the net gain. On HotpotQA the mix keeps the gain.
+
+| Corpus and model | Dense broken | Dense net | Alternate broken | Alternate net | Fusion broken | Fusion net |
+|---|---:|---:|---:|---:|---:|---:|
+| NQ, BGE | 97 | +1,177 | 48 | +1,024 | 23 | +873 |
+| NQ, E5 | 63 | +1,359 | 32 | +1,205 | 12 | +997 |
+| HotpotQA, BGE | 143 | +604 | 40 | +669 | 24 | +677 |
+| HotpotQA, E5 | 156 | +589 | 37 | +671 | 31 | +645 |
+| FiQA, BGE | 28 | +156 | 17 | +143 | 6 | +137 |
+| FiQA, E5 | 38 | +127 | 20 | +115 | 15 | +120 |
+
+Keeping both full lists removes the breaks and can use up to 20 passages.
+
 ## Your retriever
 
 ```python
@@ -142,7 +191,9 @@ failure.save("failure.json")
 }
 ```
 
-## Frozen results
+## Earlier repair study
+
+This is not the retriever-swap measurement above. The numbers here come from the frozen repair experiment in [`STUDY.md`](STUDY.md) and [`RESULTS.md`](RESULTS.md). Do not mix them with the flip tables.
 
 The sealed holdout and the mixed Hotpot comparison are frozen. Diagnosis did not beat blind increase-k: 66/76 versus 67/76, and 11/35 versus 12/35. On 12 controls, blind increase-k regressed 4 working answers. The guarded path regressed 0. Do not retune those sets.
 
