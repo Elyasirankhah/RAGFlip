@@ -1,4 +1,4 @@
-# ragfix
+# RAGFlip
 
 Try a retrieval change on your own retriever. Keep it when a failed answer starts working and a previously working answer does not break.
 
