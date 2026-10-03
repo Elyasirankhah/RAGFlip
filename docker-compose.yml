@@ -1,6 +1,6 @@
 services:
-  ragfix:
-    image: ghcr.io/elyasirankhah/ragfix:latest
+  ragflip:
+    image: ghcr.io/elyasirankhah/ragflip:latest
     build: .
     ports:
       - "8000:8000"

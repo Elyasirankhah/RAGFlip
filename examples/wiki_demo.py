@@ -137,7 +137,7 @@ def format_gold(change: str, counts) -> str:
 
 
 def retrieve(query: str, k: int):
-    """MiniLM dense retrieval. Used by `ragfix check --retriever examples.wiki_demo:retrieve`."""
+    """MiniLM dense retrieval. Used by `ragflip check --retriever examples.wiki_demo:retrieve`."""
     return _index().dense(query, k)
 
 
@@ -195,7 +195,7 @@ def main() -> None:
     print(format_check(packed, judge="overlap", change=f"bm25 budget packer at k={BUDGET_K}"))
     print(f"Traces written to {TRACE_DIR}")
     print("Re-run the dense change with:")
-    print("  ragfix check examples/wiki_traces --retriever examples.wiki_demo:retrieve --k 1 --judge overlap")
+    print("  ragflip check examples/wiki_traces --retriever examples.wiki_demo:retrieve --k 1 --judge overlap")
 
 
 def _load_squad():

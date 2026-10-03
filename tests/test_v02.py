@@ -4,8 +4,8 @@ from pathlib import Path
 from rag.diagnose import diagnose
 from rag.report import compare_reports
 from rag.trace import Trace
-from ragfix.cli import run_compare
-from ragfix.integrations.langchain import trace
+from ragflip.cli import run_compare
+from ragflip.integrations.langchain import trace
 from tests.test_analyzer import FakeEmbedder, FakeJudge
 from rag.analyzer import TraceAnalyzer
 

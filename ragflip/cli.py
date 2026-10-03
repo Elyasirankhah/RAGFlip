@@ -77,7 +77,7 @@ def run_analyze(path: str, as_json: bool = False, judge: str = "openai") -> str:
     if as_json:
         return json.dumps(report.to_dict(), indent=2) + "\n"
     text = report.format()
-    return f"ragfix\nJudge: {judge}\n\n{text}"
+    return f"ragflip\nJudge: {judge}\n\n{text}"
 
 
 def run_repair(path: str, retriever_spec: str, as_json: bool = False, judge: str = "openai") -> str:
@@ -166,7 +166,7 @@ def _serve(host: str, port: int, reload: bool) -> None:
         print(f"ERROR: could not import app: {exc}")
         sys.exit(1)
 
-    print("Starting ragfix...")
+    print("Starting ragflip...")
     print(f"  API:  http://{host}:{port}")
     print("  Stop: Ctrl+C")
 

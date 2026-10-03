@@ -169,7 +169,7 @@ def format_repair(result: Dict[str, Any]) -> str:
     verified = bool(result.get("judge_supported", result.get("verified")))
     recommendation = result.get("recommendation") or repair_recommendation(experiment, verified, regressions, failed)
     headline = failed_rows[0] if failed_rows else (claims[0] if claims else None)
-    lines = ["ragfix"]
+    lines = ["ragflip"]
     if result.get("judge"):
         lines.append(f"Judge: {result['judge']}")
     lines.append("")

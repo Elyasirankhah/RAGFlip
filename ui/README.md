@@ -1,6 +1,6 @@
-# ragfix UI
+# ragflip UI
 
-Web interface for the local ragfix server.
+Web interface for the local ragflip server.
 
 ## Features
 

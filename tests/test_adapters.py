@@ -1,4 +1,4 @@
-from ragfix.adapters import from_langchain, from_llama_index, from_openinference, ingest
+from ragflip.adapters import from_langchain, from_llama_index, from_openinference, ingest
 
 
 class FakeDocument:

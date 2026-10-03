@@ -25,7 +25,7 @@ def _download() -> bytes:
     last_error = None
     for url in URLS:
         try:
-            request = urllib.request.Request(url, headers={"User-Agent": "ragfix"})
+            request = urllib.request.Request(url, headers={"User-Agent": "ragflip"})
             return urllib.request.urlopen(request, timeout=180).read()
         except Exception as exc:
             last_error = exc

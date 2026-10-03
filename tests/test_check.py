@@ -48,9 +48,9 @@ def test_check_reads_jsonl_and_uses_logged_k(tmp_path):
 
 
 def test_cli_check_prints_report(tmp_path, capsys):
-    from ragfix.cli import main
+    from ragflip.cli import main
 
     main(["check", str(_folder(tmp_path)), "--retriever", "examples.demo_retriever:retrieve", "--k", "6", "--judge", "overlap"])
     out = capsys.readouterr().out
-    assert "ragfix check" in out
+    assert "ragflip check" in out
     assert "Skipped 1 files that are not traces." in out

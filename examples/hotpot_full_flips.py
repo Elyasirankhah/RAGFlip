@@ -68,7 +68,7 @@ def _download() -> None:
         if path.exists():
             path.unlink()
         print(f"Downloading {name} ...", flush=True)
-        request = urllib.request.Request(url, headers={"User-Agent": "ragfix"})
+        request = urllib.request.Request(url, headers={"User-Agent": "ragflip"})
         with urllib.request.urlopen(request, timeout=600) as response, path.open("wb") as handle:
             while True:
                 chunk = response.read(1 << 20)

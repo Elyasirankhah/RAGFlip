@@ -81,7 +81,7 @@ function waitForHealth(url, timeoutMs) {
     };
     const retry = () => {
       if (Date.now() > deadline) {
-        reject(new Error('Server did not become ready. Is ragfix installed and is the API key set?'));
+        reject(new Error('Server did not become ready. Is ragflip installed and is the API key set?'));
         return;
       }
       setTimeout(tick, 400);
@@ -160,7 +160,7 @@ async function startServer(context, options = {}) {
 
   for (const bin of bins) {
     try {
-      serverProcess = spawn(bin, spawnArgs(bin, ['-m', 'ragfix', '--host', host, '--port', String(port)]), {
+      serverProcess = spawn(bin, spawnArgs(bin, ['-m', 'ragflip', '--host', host, '--port', String(port)]), {
         cwd,
         env: {
           ...process.env,

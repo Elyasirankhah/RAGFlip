@@ -30,7 +30,7 @@ from rag.trace import Trace
 
 _UI_DIR = Path(__file__).resolve().parent / "ui"
 
-app = FastAPI(title="ragfix", version="0.2.2")
+app = FastAPI(title="ragflip", version="0.2.2")
 
 app.add_middleware(
     CORSMiddleware,

@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ragfix"
+name = "ragflip"
 version = "0.2.2"
 description = "Test a RAG fix against your real retriever before you ship it."
 readme = "README.md"
@@ -27,11 +27,11 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Elyasirankhah/ragfix"
-Repository = "https://github.com/Elyasirankhah/ragfix"
+Homepage = "https://github.com/Elyasirankhah/ragflip"
+Repository = "https://github.com/Elyasirankhah/ragflip"
 
 [project.scripts]
-ragfix = "ragfix.cli:main"
+ragflip = "ragflip.cli:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=7.4.0", "ruff>=0.6.0", "bandit>=1.7.9"]
@@ -42,7 +42,7 @@ py-modules = ["app", "start_server"]
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["rag", "rag.*", "utils", "utils.*", "ragfix", "ragfix.*", "ui"]
+include = ["rag", "rag.*", "utils", "utils.*", "ragflip", "ragflip.*", "ui"]
 exclude = ["tests", "tests.*"]
 
 [tool.setuptools.package-data]

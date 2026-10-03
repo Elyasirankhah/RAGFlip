@@ -4,5 +4,5 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
-IMAGE_NAME="${IMAGE_NAME:-ragfix}"
+IMAGE_NAME="${IMAGE_NAME:-ragflip}"
 docker build -t "$IMAGE_NAME" .

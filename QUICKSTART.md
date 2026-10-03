@@ -3,9 +3,9 @@
 Install the package and point it at your retriever:
 
 ```bash
-pip install ragfix
-ragfix check traces/ --retriever myapp.search:retrieve --k 8
-ragfix repair failure.json --retriever myapp.search:retrieve --judge overlap
+pip install ragflip
+ragflip check traces/ --retriever myapp.search:retrieve --k 8
+ragflip repair failure.json --retriever myapp.search:retrieve --judge overlap
 ```
 
 The trace format and the retriever signature are in [README.md](README.md).
@@ -29,7 +29,7 @@ export OPENAI_API_KEY="your-api-key-here"
 Start it:
 
 ```bash
-ragfix serve
+ragflip serve
 ```
 
 The server listens on `http://localhost:8000`. Interactive docs are at `http://localhost:8000/docs`.

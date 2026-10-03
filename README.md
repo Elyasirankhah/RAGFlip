@@ -3,24 +3,24 @@
 Try a retrieval change on your own retriever. Keep it when a failed answer starts working and a previously working answer does not break.
 
 ```bash
-pip install ragfix
-ragfix check traces/ --retriever myapp.search:retrieve --k 8
+pip install ragflip
+ragflip check traces/ --retriever myapp.search:retrieve --k 8
 ```
 
-Package: https://pypi.org/project/ragfix/
+Package: https://pypi.org/project/ragflip/
 
 The logged traces are the before. The retriever you pass is the after. `judge_supported` is that judge's decision for the claim.
 
 ## Install
 
 ```bash
-pip install ragfix
+pip install ragflip
 ```
 
 Local judges need the optional models:
 
 ```bash
-pip install "ragfix[local]"
+pip install "ragflip[local]"
 ```
 
 ## Check a set of traces
@@ -28,8 +28,8 @@ pip install "ragfix[local]"
 Use this before you change `k`, the chunk size, the embedding model, or the reranker.
 
 ```bash
-ragfix check logged_traces/ --retriever myapp.search:retrieve_v2 --judge overlap
-ragfix check logged.jsonl --retriever myapp.search:retrieve --k 8 --out report.json
+ragflip check logged_traces/ --retriever myapp.search:retrieve_v2 --judge overlap
+ragflip check logged.jsonl --retriever myapp.search:retrieve --k 8 --out report.json
 ```
 
 ```text
@@ -50,7 +50,7 @@ REVIEW BEFORE SHIPPING
 The repair actions are `increase_k`, `restore_original_query`, `rerank_candidates`, and `merge_retrieved`.
 
 ```bash
-ragfix repair failure.json --retriever myproject.retrieval:search --judge qwen
+ragflip repair failure.json --retriever myproject.retrieval:search --judge qwen
 ```
 
 A change worth keeping:
@@ -79,8 +79,8 @@ ACCEPT EXPERIMENT
 A change to throw away can improve the failed claim and still break one that already worked. The recommendation is then `REJECT EXPERIMENT`.
 
 ```bash
-ragfix repair examples/traces/accept_increase_k.json --retriever examples.demo_retriever:retrieve --judge overlap
-ragfix repair examples/traces/reject_increase_k.json --retriever examples.demo_retriever:retrieve --judge overlap
+ragflip repair examples/traces/accept_increase_k.json --retriever examples.demo_retriever:retrieve --judge overlap
+ragflip repair examples/traces/reject_increase_k.json --retriever examples.demo_retriever:retrieve --judge overlap
 ```
 
 The reject trace already supports "The desk lamp uses 40 watts." A wider `k` returns Paris and drops the lamp.
@@ -97,7 +97,7 @@ Pass it as `module:function`.
 LangChain:
 
 ```python
-from ragfix.integrations.langchain import as_retriever, trace
+from ragflip.integrations.langchain import as_retriever, trace
 
 failure = trace("What does the desk lamp use?", chain_result, top_k=1)
 failure.save("failure.json")
@@ -132,4 +132,4 @@ Packing BM25 top-6 into a 90-word budget fixed 6 answers and broke 93 of the 117
 
 ## Server
 
-`ragfix` with no subcommand prints help. `ragfix serve` starts the local server. See [QUICKSTART.md](QUICKSTART.md).
+`ragflip` with no subcommand prints help. `ragflip serve` starts the local server. See [QUICKSTART.md](QUICKSTART.md).

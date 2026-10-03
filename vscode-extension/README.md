@@ -1,25 +1,25 @@
-# ragfix for VS Code
+# ragflip for VS Code
 
-Run ragfix from the editor, save your OpenAI key in VS Code secret storage, and inspect which retrieved chunks support each generated sentence.
+Run ragflip from the editor, save your OpenAI key in VS Code secret storage, and inspect which retrieved chunks support each generated sentence.
 
 ## Install
 
 1. Install the Python package:
 
 ```powershell
-pip install ragfix
+pip install ragflip
 ```
 
 2. Install this extension from the VSIX (Command Palette: **Extensions: Install from VSIX...**), or:
 
 ```powershell
-code --install-extension ragfix-0.1.0.vsix
+code --install-extension ragflip-0.1.0.vsix
 ```
 
 In Cursor:
 
 ```powershell
-cursor --install-extension ragfix-0.1.0.vsix
+cursor --install-extension ragflip-0.1.0.vsix
 ```
 
 ## Use

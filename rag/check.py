@@ -130,7 +130,7 @@ def recommendation(rows: Sequence[Dict[str, Any]]) -> str:
 def format_check(result: Dict[str, Any], judge: str = "", change: str = "", limit: int = 10) -> str:
     summary = result["summary"]
     rows = result["traces"]
-    lines = ["ragfix check"]
+    lines = ["ragflip check"]
     if judge:
         lines.append(f"Judge: {judge}")
     if change:

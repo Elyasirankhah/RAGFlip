@@ -2,7 +2,7 @@
 from typing import Any, Callable, Optional
 
 from rag.trace import Trace
-from ragfix.adapters import chunks_from_docs, from_langchain
+from ragflip.adapters import chunks_from_docs, from_langchain
 
 
 def trace(

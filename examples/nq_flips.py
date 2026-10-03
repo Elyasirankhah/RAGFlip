@@ -57,7 +57,7 @@ def _download() -> None:
         if path.exists() and path.stat().st_size > 1000:
             continue
         print(f"Downloading {name} ...", flush=True)
-        request = urllib.request.Request(url, headers={"User-Agent": "ragfix"})
+        request = urllib.request.Request(url, headers={"User-Agent": "ragflip"})
         path.write_bytes(urllib.request.urlopen(request, timeout=300).read())
 
 

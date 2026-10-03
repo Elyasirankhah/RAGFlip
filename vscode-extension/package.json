@@ -1,5 +1,5 @@
 {
-  "name": "ragfix",
+  "name": "ragflip",
   "displayName": "RAG Debugger",
   "description": "Why your RAG failed, and whether a suggested fix actually helps.",
   "version": "0.1.0",

@@ -1,4 +1,4 @@
-from ragfix.cli import main
+from ragflip.cli import main
 
 if __name__ == "__main__":
     main()

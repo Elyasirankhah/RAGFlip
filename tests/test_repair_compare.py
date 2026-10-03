@@ -37,7 +37,7 @@ def test_increase_k_verifies_when_the_same_k_rerun_misses():
     assert rates["always_increase_k"]["verified"] == 1
     assert rates["llm_choice"]["verified"] == 1
     assert rates["always_rerun"]["verified"] == 0
-    assert rates["ragfix"]["verified"] == 1
+    assert rates["ragflip"]["verified"] == 1
 
 
 def test_scored_checkpoint_selects_repairable_cases(tmp_path):

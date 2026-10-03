@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r /tmp/requirements-runtime.txt
 
 COPY app.py start_server.py ./
 COPY rag ./rag
-COPY ragfix ./ragfix
+COPY ragflip ./ragflip
 COPY utils ./utils
 COPY ui ./ui
 COPY ci/cd/entrypoint.sh /entrypoint.sh
