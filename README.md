@@ -1,5 +1,13 @@
 # RAGFlip
 
+Query-level negative flips when one retriever replaces another.
+
+[![PyPI](https://img.shields.io/pypi/v/ragflip)](https://pypi.org/project/ragflip/)
+
+![Negative-flip rate and net gain across retrieval depth](docs/depth.png)
+
+Aggregate coverage can rise while some queries that BM25 already supported lose their relevant passage. The figure shows that pattern for BGE, E5, and SPLADE on Natural Questions, HotpotQA, and FiQA.
+
 Try a retrieval change on your own retriever. Keep it when a failed answer starts working and a previously working answer does not break.
 
 ```bash
