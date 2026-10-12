@@ -8,7 +8,7 @@ Query-level negative flips when one retriever replaces another.
 
 Aggregate coverage can rise while some queries that BM25 already supported lose their relevant passage. The figure shows that pattern for BGE, E5, and SPLADE on Natural Questions, HotpotQA, and FiQA.
 
-Try a retrieval change on your own retriever. Keep it when a failed answer starts working and a previously working answer does not break.
+Run a retrieval change against logged traces. RAGFlip lists the traces that gain support, the traces that lose support, and a recommendation label for that comparison. The application decides which losses are acceptable.
 
 ```bash
 pip install ragflip
@@ -61,7 +61,7 @@ The repair actions are `increase_k`, `restore_original_query`, `rerank_candidate
 ragflip repair failure.json --retriever myproject.retrieval:search --judge qwen
 ```
 
-A change worth keeping:
+When the failed claim becomes supported and no previously supported claim breaks, the command prints:
 
 ```text
 Failed claim
@@ -84,7 +84,7 @@ Recommendation
 ACCEPT EXPERIMENT
 ```
 
-A change to throw away can improve the failed claim and still break one that already worked. The recommendation is then `REJECT EXPERIMENT`.
+When the same change also breaks a claim that already worked, the command prints `REJECT EXPERIMENT`.
 
 ```bash
 ragflip repair examples/traces/accept_increase_k.json --retriever examples.demo_retriever:retrieve --judge overlap
@@ -136,7 +136,7 @@ Replacing BM25 with `all-MiniLM-L6-v2` at the same k:
 | Gold answer string | 13 / 33 missed | 33 / 117 already answered |
 | Overlap judge | 12 / 31 failing traces | 31 / 119 working traces |
 
-Packing BM25 top-6 into a 90-word budget fixed 6 answers and broke 93 of the 117 answers BM25 already had. Both changes are `REVIEW BEFORE SHIPPING`.
+Packing BM25 top-6 into a 90-word budget fixed 6 answers and broke 93 of the 117 answers BM25 already had. Both checks print `REVIEW BEFORE SHIPPING`.
 
 ## Server
 
