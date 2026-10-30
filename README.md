@@ -2,7 +2,10 @@
 
 Query-level negative flips when one retriever replaces another.
 
+[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b)](https://arxiv.org/abs/2610.07266)
+[![Package](https://img.shields.io/badge/Package-PyPI-3775A9)](https://pypi.org/project/ragflip/)
 [![PyPI](https://img.shields.io/pypi/v/ragflip)](https://pypi.org/project/ragflip/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ![Negative-flip rate and net gain across retrieval depth](docs/depth.png)
 
