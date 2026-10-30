@@ -17,6 +17,26 @@ ragflip check traces/ --retriever myapp.search:retrieve --k 8
 
 Package: https://pypi.org/project/ragflip/
 
+## Citation
+
+If you use RAGFlip in research, please cite our paper:
+
+> Elyas Irankhah and Muhammad Arif. **RAGFlip: Measuring Query-Level Negative Flips in Retriever Upgrades.** arXiv:2610.07266 [cs.IR], 2026.  
+> [https://arxiv.org/abs/2610.07266](https://arxiv.org/abs/2610.07266) · [https://doi.org/10.48550/arXiv.2610.07266](https://doi.org/10.48550/arXiv.2610.07266)
+
+```bibtex
+@misc{irankhah2026ragflip,
+  title         = {RAGFlip: Measuring Query-Level Negative Flips in Retriever Upgrades},
+  author        = {Irankhah, Elyas and Arif, Muhammad},
+  year          = {2026},
+  eprint        = {2610.07266},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.IR},
+  doi           = {10.48550/arXiv.2610.07266},
+  url           = {https://arxiv.org/abs/2610.07266}
+}
+```
+
 The logged traces are the before. The retriever you pass is the after. `judge_supported` is that judge's decision for the claim.
 
 ## Install

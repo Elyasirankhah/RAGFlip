@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: RAGFlip
+message: >-
+  If you use this software, please cite our paper on query-level negative flips
+  in retriever upgrades.
+type: software
+authors:
+  - family-names: Irankhah
+    given-names: Elyas
+  - family-names: Arif
+    given-names: Muhammad
+repository-code: "https://github.com/Elyasirankhah/RAGFlip"
+url: "https://pypi.org/project/ragflip/"
+license: MIT
+preferred-citation:
+  type: article
+  title: "RAGFlip: Measuring Query-Level Negative Flips in Retriever Upgrades"
+  authors:
+    - family-names: Irankhah
+      given-names: Elyas
+    - family-names: Arif
+      given-names: Muhammad
+  year: 2026
+  doi: 10.48550/arXiv.2610.07266
+  url: "https://arxiv.org/abs/2610.07266"
+  journal: arXiv

@@ -29,6 +29,7 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/Elyasirankhah/ragflip"
 Repository = "https://github.com/Elyasirankhah/ragflip"
+Paper = "https://arxiv.org/abs/2610.07266"
 
 [project.scripts]
 ragflip = "ragflip.cli:main"
